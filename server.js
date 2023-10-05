@@ -3,6 +3,7 @@ const cors = require('cors');
 const connection = require('./configs/connection');
 const usersRoutes = require('./routes/users.routes');
 const productsRoutes = require('./routes/products.routes');
+const listingsRoutes = require('./routes/lisitings.routes');
 
 
 
@@ -41,12 +42,13 @@ class Server {
     }
 
     async initializeRouter() {
-        this.app.use('/api',usersRoutes.getRouter());
+        this.app.use('/api', usersRoutes.getRouter());
         this.app.use('/api', productsRoutes.getRouter());
+        this.app.use('/api', listingsRoutes.getRouter());
     }
 
     async serverStarter() {
-        this.app.listen(this.PORT,async()=>{
+        this.app.listen(this.PORT, async () => {
             try {
                 await connection;
                 console.log("Server is connected to the Database.");

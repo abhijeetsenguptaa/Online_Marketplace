@@ -1,3 +1,4 @@
+require('dotenv').config();
 const ProductModel = require("../models/product.model");
 
 class Product_Controller {
