@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const connection = require('./configs/connection');
 const usersRoutes = require('./routes/users.routes');
+const productsRoutes = require('./routes/products.routes');
 
 
 
@@ -41,6 +42,7 @@ class Server {
 
     async initializeRouter() {
         this.app.use('/api',usersRoutes.getRouter());
+        this.app.use('/api', productsRoutes.getRouter());
     }
 
     async serverStarter() {
