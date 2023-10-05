@@ -4,6 +4,7 @@ const connection = require('./configs/connection');
 const usersRoutes = require('./routes/users.routes');
 const productsRoutes = require('./routes/products.routes');
 const listingsRoutes = require('./routes/lisitings.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 
 
@@ -45,6 +46,7 @@ class Server {
         this.app.use('/api', usersRoutes.getRouter());
         this.app.use('/api', productsRoutes.getRouter());
         this.app.use('/api', listingsRoutes.getRouter());
+        this.app.use('/api', ordersRoutes.getRouter());
     }
 
     async serverStarter() {
