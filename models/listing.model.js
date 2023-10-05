@@ -16,12 +16,12 @@ const listingSchema = mongoose.Schema({
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: UserModel
+        ref: 'users'
     }
 }, {
     versionKey: false
 })
 
-const ListingModel = mongoose.Model('listings', listingSchema);
+const ListingModel = mongoose.model('listings', listingSchema);
 
 module.exports = ListingModel;

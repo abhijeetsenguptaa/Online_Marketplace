@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const connection = require('./configs/connection');
+const usersRoutes = require('./routes/users.routes');
 
 
 
@@ -39,7 +40,7 @@ class Server {
     }
 
     async initializeRouter() {
-        
+        this.app.use('/api',usersRoutes.getRouter());
     }
 
     async serverStarter() {

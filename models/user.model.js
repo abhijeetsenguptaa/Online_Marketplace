@@ -1,7 +1,4 @@
 const { default: mongoose } = require('mongoose');
-const ListingModel = require('./listing.model');
-const OrderModel = require('./order.model');
-const ProductModel = require('./product.model');
 
 const userSchema = mongoose.Schema({
     name: {
@@ -21,22 +18,22 @@ const userSchema = mongoose.Schema({
     },
     listings: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: ListingModel
+        ref: 'listings'
     }],
     cart: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: ProductModel
+        ref: 'products'
     }],
     orders: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: OrderModel
+        ref: 'orders'
     }],
 }, {
     versionKey: false
 })
 
 
-const UserModel = mongoose.Model('users', userSchema);
+const UserModel = mongoose.model('users', userSchema);
 
 
 module.exports = UserModel;
